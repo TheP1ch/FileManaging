@@ -7,6 +7,6 @@
 
 import Foundation
 
-enum FileError: Error {
+public enum FileError: Error {
     case invalidFileURL
 }

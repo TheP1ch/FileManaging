@@ -6,9 +6,12 @@
 
 import Foundation
 
-protocol FileManagingJson {
+public protocol FileManagingJson {
     func saveJsonFile(named fileName: String, json: Any) throws
     func loadJsonFile(named fileName: String) throws -> Any
+    
+    func load(fileName: String) throws -> Data
+    func save(fileName: String, json: Data) throws
 }
 
 final class FileManagerJson: FileManagingJson {
@@ -51,3 +54,4 @@ final class FileManagerJson: FileManagingJson {
         try data.write(to: fileUrl)
     }
 }
+

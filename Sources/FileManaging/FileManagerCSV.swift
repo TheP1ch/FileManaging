@@ -12,7 +12,7 @@ public protocol FileManagingCSV {
 }
 
 final class FileManagerCSV: FileManagingCSV {
-    public func saveCSVFile(named fileName: String, data csvString: String) throws {
+    func saveCSVFile(named fileName: String, data csvString: String) throws {
         guard let fileUrl = FileManager.getFileUrl(fileName: "\(fileName).csv") else {
             throw FileError.invalidFileURL
         }
@@ -20,7 +20,7 @@ final class FileManagerCSV: FileManagingCSV {
         try csvString.write(to: fileUrl, atomically: true, encoding: .utf8)
     }
 
-    public func loadCSVFile(named fileName: String) throws -> String {
+    func loadCSVFile(named fileName: String) throws -> String {
         guard let fileUrl = FileManager.getFileUrl(fileName: "\(fileName).csv") else {
             throw FileError.invalidFileURL
         }
