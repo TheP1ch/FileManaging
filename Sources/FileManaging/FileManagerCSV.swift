@@ -6,7 +6,7 @@
 
 import Foundation
 
-public protocol FileManagingCSV {
+public protocol FileManagingCSV: AnyObject {
     func saveCSVFile(named fileName: String, data csvString: String) throws
     func loadCSVFile(named fileName: String) throws -> String
 }

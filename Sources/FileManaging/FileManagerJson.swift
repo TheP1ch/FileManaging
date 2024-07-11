@@ -6,7 +6,7 @@
 
 import Foundation
 
-public protocol FileManagingJson {
+public protocol FileManagingJson: AnyObject {
     func saveJsonFile(named fileName: String, json: Any) throws
     func loadJsonFile(named fileName: String) throws -> Any
     
