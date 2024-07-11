@@ -13,6 +13,8 @@ public protocol FileManagingCSV: AnyObject {
 
 public final class FileManagerCSV: FileManagingCSV {
     
+    public init() {}
+    
     public func saveCSVFile(named fileName: String, data csvString: String) throws {
         guard let fileUrl = FileManager.getFileUrl(fileName: "\(fileName).csv") else {
             throw FileError.invalidFileURL

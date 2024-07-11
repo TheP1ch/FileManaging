@@ -16,6 +16,8 @@ public protocol FileManagingJson: AnyObject {
 
 public final class FileManagerJson: FileManagingJson {
     
+    public init() {}
+    
     public func loadJsonFile(named fileName: String) throws -> Any {
         guard let fileUrl = FileManager.getFileUrl(fileName: "\(fileName).json") else {
             throw FileError.invalidFileURL
