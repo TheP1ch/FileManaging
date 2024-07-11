@@ -12,11 +12,12 @@ public protocol FileManagingJson: AnyObject {
     
     func load(fileName: String) throws -> Data
     func save(fileName: String, json: Data) throws
-    
-    init()
 }
 
 final class FileManagerJson: FileManagingJson {
+    
+    public init() {}
+    
     func loadJsonFile(named fileName: String) throws -> Any {
         guard let fileUrl = FileManager.getFileUrl(fileName: "\(fileName).json") else {
             throw FileError.invalidFileURL

@@ -9,11 +9,12 @@ import Foundation
 public protocol FileManagingCSV: AnyObject {
     func saveCSVFile(named fileName: String, data csvString: String) throws
     func loadCSVFile(named fileName: String) throws -> String
-    
-    init()
 }
 
 final class FileManagerCSV: FileManagingCSV {
+    
+    public init() {}
+    
     func saveCSVFile(named fileName: String, data csvString: String) throws {
         guard let fileUrl = FileManager.getFileUrl(fileName: "\(fileName).csv") else {
             throw FileError.invalidFileURL
