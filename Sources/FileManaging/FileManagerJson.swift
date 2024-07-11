@@ -12,6 +12,8 @@ public protocol FileManagingJson: AnyObject {
     
     func load(fileName: String) throws -> Data
     func save(fileName: String, json: Data) throws
+    
+    init()
 }
 
 final class FileManagerJson: FileManagingJson {
