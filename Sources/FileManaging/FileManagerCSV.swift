@@ -11,11 +11,9 @@ public protocol FileManagingCSV: AnyObject {
     func loadCSVFile(named fileName: String) throws -> String
 }
 
-final class FileManagerCSV: FileManagingCSV {
+public final class FileManagerCSV: FileManagingCSV {
     
-    public init() {}
-    
-    func saveCSVFile(named fileName: String, data csvString: String) throws {
+    public func saveCSVFile(named fileName: String, data csvString: String) throws {
         guard let fileUrl = FileManager.getFileUrl(fileName: "\(fileName).csv") else {
             throw FileError.invalidFileURL
         }
@@ -23,7 +21,7 @@ final class FileManagerCSV: FileManagingCSV {
         try csvString.write(to: fileUrl, atomically: true, encoding: .utf8)
     }
 
-    func loadCSVFile(named fileName: String) throws -> String {
+    public func loadCSVFile(named fileName: String) throws -> String {
         guard let fileUrl = FileManager.getFileUrl(fileName: "\(fileName).csv") else {
             throw FileError.invalidFileURL
         }

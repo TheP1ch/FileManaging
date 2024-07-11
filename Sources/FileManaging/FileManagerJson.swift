@@ -14,11 +14,9 @@ public protocol FileManagingJson: AnyObject {
     func save(fileName: String, json: Data) throws
 }
 
-final class FileManagerJson: FileManagingJson {
+public final class FileManagerJson: FileManagingJson {
     
-    public init() {}
-    
-    func loadJsonFile(named fileName: String) throws -> Any {
+    public func loadJsonFile(named fileName: String) throws -> Any {
         guard let fileUrl = FileManager.getFileUrl(fileName: "\(fileName).json") else {
             throw FileError.invalidFileURL
         }
@@ -29,7 +27,7 @@ final class FileManagerJson: FileManagingJson {
 
     }
 
-    func load(fileName: String) throws -> Data {
+    public func load(fileName: String) throws -> Data {
         guard let fileUrl = FileManager.getFileUrl(fileName: "\(fileName).json") else {
             throw FileError.invalidFileURL
         }
@@ -39,7 +37,7 @@ final class FileManagerJson: FileManagingJson {
         return data
     }
 
-    func save(fileName: String, json: Data) throws {
+    public func save(fileName: String, json: Data) throws {
         guard let fileUrl = FileManager.getFileUrl(fileName: "\(fileName).json") else {
             throw FileError.invalidFileURL
         }
@@ -47,7 +45,7 @@ final class FileManagerJson: FileManagingJson {
         try json.write(to: fileUrl)
     }
 
-    func saveJsonFile(named fileName: String, json: Any) throws {
+    public func saveJsonFile(named fileName: String, json: Any) throws {
         guard let fileUrl = FileManager.getFileUrl(fileName: "\(fileName).json") else {
             throw FileError.invalidFileURL
         }
