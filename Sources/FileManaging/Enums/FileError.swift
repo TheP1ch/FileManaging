@@ -9,4 +9,5 @@ import Foundation
 
 public enum FileError: Error {
     case invalidFileURL
+    case invalidJsonSearialization
 }
